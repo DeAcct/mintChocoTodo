@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;900&display=swap');
+:root{
+    --LightModeBgc:hsl(192, 25%, 95%);
+    --InputBoxBgc:hsl(192, 25%, 90%);
+    --TodoBg: hsl(192, 25%, 85%);
+    --FocusBgc: hsl(192, 25%, 60%);
+    --alertBg:hsl(192, 25%, 50%);
+    --Identity: hsl(15, 41%, 41%);
+    --errorIcon: hsl(345, 91%, 55%);
+    --errorExclamation: hsl(345, 91%, 35%);
+    --infoIcon: hsl(36, 91%, 55%);
+    --infoExclamation: hsl(36, 91%, 35%);
+}
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+html,body{
+    width: 100%;
+    font-size: 0.625em;
+    background-color:hsl(192, 25%, 96%);
+}
+.app{
+    width: 100%;
+    height: 100vh;
+    background-color:var(--LightModeBgc);
+}
+.inner{
+    width: 87.5%;
+    margin:0 auto;
+}
+#TodoList{
+    width: 100%;
+    padding-top: 180px;
+    border-radius: 10px 10px 0 0; 
+}
+header{
+    position:fixed;
+    z-index: 10;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 90px 0 20px;
+    background-color: var(--TodoBg);
+    transition: 150ms ease-out;
+}
+h1{
+    display: block;
+    width: 87.5%;
+    font-size: 3rem;
+    font-weight: 900;
+    transition: 150ms ease-out;
+}
+div.InputBox{
+    position:fixed;
+    z-index: 10;
+    bottom:0;
+    width: 100vw;
+    height: 50px;
+    background-color:var(--InputBoxBgc);
+}
+.InputBox .inner{
+    width: 87.5%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.InputBox input{
+    width: 80%;
+    height: 70%;
+    font-size:1.5rem;
+    font-weight: 300;
+    border:none;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    transition:150ms ease-out;
+}
+.InputBox input:focus{
+    outline: none;
+    border-bottom-color: var(--FocusBgc);
+}
+.InputBox #addBtn{
+    width: 50px;
+    height: 70%;
+    border:none;
+    border-radius: 5px;
+    background-color: var(--Identity);
+    color:#fff;
+    font-weight: 300;
+}
+#TodoList .DOs{
+    width: 87.5%;
+    background-color: var(--TodoBg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin: 0 auto 10px;
+}
+.DOs input[type="checkbox"]{
+    position:absolute;
+    left:-9999px;
+}
+.DOs .checkbox{
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    transition: 150ms ease-out;
+    border: 2px solid var(--Identity);
+    margin-right: 10px;
+}
+.DOs input:checked + .checkbox{
+    background-color: var(--Identity);
+}
+.DOs input:checked + .checkbox{
+    text-decoration: line-through;
+}
+
+.DOs .text{
+    width: 80%;
+}
+.DOs label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.DOs p{
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+}
+.DOs span{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+.DOs button{
+    background-color:transparent;
+    border:none;
+    text-indent: -9999px;
+
+}
+.toast{
+    position:fixed;
+    z-index: 5;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    color:#fff;
+    font-size: 1.5rem;
+    background-color:var(--alertBg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 150ms ease-out;
+}
+.toastWrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 87.5%;
+    height: 50px;
+    margin:0 auto;
+}
+.toast .toastIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
